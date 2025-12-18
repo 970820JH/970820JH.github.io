@@ -58,7 +58,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "프로필"
+  name   : "*프로필"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : |
     김 재 호 (金 栽 浩)
