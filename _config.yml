@@ -60,10 +60,10 @@ plugins:
 author:
   name   : "Kim Jaeho"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "김 재 호 (金 栽 浩)
-            1997. 08. 20 (만 28세)"
-            
-          
+  bio    : |
+   김 재 호 (金 栽 浩)
+   1997. 08. 20 (만 28세)
+
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
