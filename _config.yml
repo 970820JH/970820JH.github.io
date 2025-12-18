@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jaeho's Portfolio
+title: Jaeho's Information Security Blog
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -58,10 +58,11 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Kim Jaeho"
+  name   : "Portfolio"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : |
    김 재 호 (金 栽 浩)
+   Kim Jaeho
    1997. 08. 20 (만 28세)
 
   links:
