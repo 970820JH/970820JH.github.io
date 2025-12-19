@@ -89,8 +89,7 @@ author:
     - label: "리버싱 및 Python자체코드(후킹)"
       icon: "fas fa-fw fa-link"
       url: "https://970820JH.github.io/tags/"
-    - label: "칼리 리눅스 등 각종 툴(Tool)분석 
-            및 Python자체코드 연구"
+    - label: "칼리 리눅스 등 각종 툴(Tool)분석 및 Python자체코드 연구"
       icon: "fas fa-fw fa-link"
       url: "https://970820JH.github.io/tags/"      
 
