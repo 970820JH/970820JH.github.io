@@ -68,9 +68,6 @@ author:
     woghtjsgh123@naver.com
 
   links:
-    - label: "프로필"
-      icon: "fas fa-fw fa-link"
-      url: "https://970820JH.github.io/profile/"
     - label: "인프라 취약점 진단(정보시스템 전체계 운용 통합)"
       icon: "fas fa-fw fa-link"
       url: "https://970820JH.github.io/tags/"      
