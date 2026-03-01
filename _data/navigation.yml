@@ -1,6 +1,4 @@
 main:
-  - title: "프로필"
-    url: /profile/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
@@ -9,3 +7,7 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
+
+
+
+    
