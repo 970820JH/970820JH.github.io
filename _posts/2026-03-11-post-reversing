@@ -19,18 +19,17 @@ A.c     ->      A.obj     ->   a.exe
 
 
 PE파일 구조 (Windows)
-4D 5A -> MZ시그니처(실행파일) HXD분석시
-
 +---------------------+
-| DOS Header          |  -> 시그니처(ex. MZ시그니처),e_lfanew(ex. 0x3C필드 고정) -여기서부터ER시작지점(NT_HEAder)
+| DOS Header          |  -> 시그니처(ex. 4D 5A/ MZ시그니처),e_lfanew(ex. 0x3C필드 고정) -여기서부터ER시작지점(NT_HEAder)
 +---------------------+
 | DOS Stub            |  
 +---------------------+
-| PE Signature        |
+| NT Header(3가지구성요소)|
+| - PE Signature      |
 +---------------------+
-| COFF File Header    |
+| - COFF File Header  |
 +---------------------+
-| Optional Header     |
+| - Optional Header   |  -> 링킹에서 1번 2번에 대한 답
 +---------------------+
 | Section Table       |
 +---------------------+
@@ -42,16 +41,12 @@ PE파일 구조 (Windows)
 | Section 6 (.idata)  | ->(3.외부라이브러리 어떤 함수 ->바인딩과정(셸코드들은 셀프바인딩해야함)
 +---------------------+
 
-vkdlfgpej
-ㅒㅖ쌰ㅒㅜㅊ미
-
 OPTIONAL_HEADER -> Imagge Base(I.B)(1.메모리어디에)
                 -> Address of Entry Point(AoP) (2.어디서부터시작)
 ex)
 I.B=0x400000
 AoP=0x1B90
 offse?(0x1B90건너띄고부터 시작)
-
 
 
 
