@@ -29,16 +29,16 @@ PE파일 구조 (Windows)
 +---------------------+
 | - COFF File Header  |
 +---------------------+
-| - Optional Header   |  -> 링킹에서 1번 2번에 대한 답
+| - Optional Header   |  -> Imagge Base(I.B)(1.메모리어디에) / Address of Entry Point(AoP) (2.어디서부터시작)
 +---------------------+
 | Section Table       |
 +---------------------+
-| Section 1 (.text)   | ->기계어코드
-| Section 2 (.data)   | ->전역변수 정의
+| Section 1 (.text)   | ->기계어코드  / R_X
+| Section 2 (.data)   | ->전역변수 정의  / RW_
 | Section 3 (.rdata)  |
-| Section 4 (.rsrc)   | -아이콘
+| Section 4 (.rsrc)   | -아이콘,동영상,리소스 / R__
 | Section 5 (.reloc)  |
-| Section 6 (.idata)  | ->(3.외부라이브러리 어떤 함수 ->바인딩과정(셸코드들은 셀프바인딩해야함)
+| Section 6 (.idata)  | ->(3.외부라이브러리 어떤 함수 위치가있다->바인딩과정(셸코드들은 셀프바인딩해야함/ 이작업은 로더가해줌) / RW_
 +---------------------+
 
 OPTIONAL_HEADER -> Imagge Base(I.B)(1.메모리어디에)
@@ -49,18 +49,44 @@ AoP=0x1B90
 offse?(0x1B90건너띄고부터 시작)
 
 
+32비트만지원 ->PEview
+64비트 ->CFF EXploreer (값을 변경해서 저장도할수있음
 
 
+1.Section Headers  -> virtual Address, Rawsize, raw address characteristics
+cf)섹션을나누는이유는 섹션마다 실행권한이 다르므로 보안상
+
+2.idata) 
+PFile
+RVA- >메일에올렸을때 주소값
 
 
+3.IAT Tables (함수인데 어디속하는거지)/ *정말중요 ->백신프로그램 대게 이부분을봄 (악성프로그램들은 권한상승이나디버깅등등 API들을사용하기에)
+API hashing -> 요즘은그래서 해시값으로 해서 악성프로그램. 특히 셸코드
 
 
+--------------------
+가상메모리공간에 대한 개념
+0에서 FFFFf까지
+실제메모리는 예ㅖ를들어 0x10 0x20인데 가상메모리ㅗ에서 0에서 FFFFf까지 실행파일들이 착각
+단편화(실제메모리에서 중간중간남는) 이 발생하기에 가상메모리의 등장 ->mapping table도 등장 단편화된곳부분들 쪼개서 사용
+그러므로 B.exe는 a.exe의 실제 주소를 절대 알수없게됨
+
+페이징이란?
 
 
+x.dbg32 -> 실제동적 (프로그램실행됨)
+IDA, Ghidre -> 정적
 
+x.dbg32 (calc.exe 2개 비교)
 
+f8->디버깅한줄실ㄹ행
+f9 ->breakpoint까지간다
+ctrl + g ->이동
+라벨단축키 (thread)
 
-
+상단Memory Map -> 가상공간주소임을 알수있음\
+-> 그후 아이다에서 메ㅐ인함수주소찾아서 x32로 접근했음
 
 
 
