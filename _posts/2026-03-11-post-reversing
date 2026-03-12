@@ -118,8 +118,114 @@ AND 뺴기인데 비트연산
 SUB 빼기
 
 
+Q1)
+InserMe라는 파일을 PE_section실행파일에 섹션으로 추가
+섹션명은 .extra
 
-섹션추가하는데 .extra
+ㄴoptional header -> sizeOfImage(프로그램이 메모리에 로드될 때 차지하는 전체 메모리 크기) 7000에서 8000으로바꿔줘야함이것도
+
+
+--------
+03.12.목요일
+
+
+sample.c에대한 코드 -> 실행파일(exe)해서 소스코드 분석해봄
+
+ex) sample.c -> .exe컴파일해서 x342dbg 
+
+```
+#include <stdio.h>
+
+int loop_count = 0;
+int sum(int a, int b) {
+    return a + b;
+}
+
+int loop() {
+    int result = 0;
+    loop_count = 10;
+    for(int i = 0; i < loop_count; ++i) {
+        result = result + i;
+    }
+    return result;
+}
+
+int main(int argc, char *argv[]) {
+    int var_a = 5;
+    int var_b = 7;
+
+    printf("%d + %d = %d\n", var_a, var_b, sum(var_a, var_b));
+    printf("loop() function's return value : %d", loop());
+}
+```
+
+
+*스택프레임구조 (함수)
+
+push ebp
+mov ebp,esp
+and esp,FFFFFF0
+sub esp,20 
+
+ex) main함수에 call A 로 A함수를 불러오면서 실제 메모리 스택프레임의 예시
+
+<Low Address>
++------------------+  -> ESP
+| func(B)          |   
++------------------+  -> ESP, EBP
+| func(A).EBP      |  -> func(A)의(리턴어드레스) 즉, 돌아갈주소
++------------------+  -> ESP
+| func(A)          |  -> 만약 func(A)안에 func(B)가 있을경우 
++------------------+  -> EBP,ESP
+| main()의 EBP     |  -> 메인함수의(리턴어드레스) 즉, 돌아갈주소이자 복귀주소 
++------------------+
+| Main()           |  
++------------------+
+<High Address>
+
+
+
+ex) main함수에 call A 불러왓고 소멸과정 실제 메모리 스택프레임의 예시 (더해주는예시)
+leave 
+혹은
+MOV ESP,EBP
+POP EBP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
